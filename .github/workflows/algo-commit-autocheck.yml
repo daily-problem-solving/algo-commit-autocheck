@@ -39,7 +39,7 @@ jobs:
           done
 
           cat temp.txt >> README.md
-          echo <br> >> README.md
+          echo "<br>" >> README.md
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
