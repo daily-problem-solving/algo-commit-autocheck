@@ -17,7 +17,8 @@ jobs:
         run: |
           count=$(cat users.json | jq '. | length')
           for ((i = 0; i < count; i++)); do
-            cat users.json | jq -r ".[0].name" >> README.md
+            date -u -I >> temp.txt
+            cat users.json | jq -r ".[$i].name" >> temp.txt
             repo=$(cat users.json | jq -r ".[$i].repo")
 
             latest_date=$(curl -L \
@@ -31,10 +32,10 @@ jobs:
             end_date_epoch=$(date -d "today 15:00" +%s)
 
             if [[ $latest_date_epoch -ge $start_date_epoch && $latest_date_epoch -le $end_date_epoch ]]; then
-              echo "Y" >> README.md
+              echo "Y" >> temp.txt
             else
-              echo "N" >> README.md
+              echo "N" >> temp.txt
             fi
           done
 
-          cat README.md
+          cat temp.txt >> README.md
