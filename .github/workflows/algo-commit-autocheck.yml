@@ -1,0 +1,13 @@
+name: algo commit autocheck
+on:
+  schedule:
+    - cron: '0 0 * * 2-6'
+
+jobs:
+  check-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check commit
+        run: |
+          ls -al
+          
