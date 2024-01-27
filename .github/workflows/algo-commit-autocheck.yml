@@ -39,3 +39,4 @@ jobs:
           done
 
           cat temp.txt >> README.md
+          cat README.md
