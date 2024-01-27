@@ -39,10 +39,8 @@ jobs:
           done
 
           cat temp.txt >> README.md
-      - name: commit
-        run: |
-          git config --local user.email "noreply.github.com"
-          git config --local user.name "github actions bot"
-          git add README.md
-          git commit -s -m "algo commit autocheck"
-          git push
+          echo <br> >> README.md
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.TOKEN_GITHUB }}
