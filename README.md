@@ -8,26 +8,6 @@
 2. 커밋 유무를 날짜별로 정리해, README 파일에 작성하고 새로운 커밋을 진행한다.
 3. 커밋하지 않은 팀원들에게는 이메일로 알람을 보낸다.
 
+[구현 과정 보러 가기 (click)](https://velog.io/@dev-yuniljun/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%A0%88%ED%8F%AC-%EC%BB%A4%EB%B0%8B-%EC%9E%90%EB%8F%99-%ED%99%95%EC%9D%B8-od9b4yxc)
+
 **커밋 확인 로그**  
-2024-01-27
-smilejune
-Y
- / 
-2522001
-N
- / 
-harin1212
-N
- / 
-<br>
-2024-01-27
-smilejune
-Y
- / 
-2522001
-N
- / 
-harin1212
-N
- / 
-<br>
