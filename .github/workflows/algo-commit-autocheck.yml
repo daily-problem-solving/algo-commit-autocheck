@@ -38,9 +38,11 @@ jobs:
             else
               echo "N" >> temp.txt
             fi
+            echo " / "
           done
 
           cat temp.txt >> README.md
+          rm -rf temp.txt
           echo "<br>" >> README.md
       - name: Commit & Push changes
         uses: actions-js/push@master
