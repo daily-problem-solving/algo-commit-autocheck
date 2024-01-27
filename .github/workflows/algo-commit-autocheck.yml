@@ -16,8 +16,8 @@ jobs:
       - name: check commit 
         run: |
           count=$(cat users.json | jq '. | length')
+          date -u -I >> temp.txt
           for ((i = 0; i < count; i++)); do
-            date -u -I >> temp.txt
             cat users.json | jq -r ".[$i].name" >> temp.txt
             repo=$(cat users.json | jq -r ".[$i].repo")
 
@@ -39,4 +39,10 @@ jobs:
           done
 
           cat temp.txt >> README.md
-          cat README.md
+      - name: commit
+        run: |
+          git config --local user.email "noreply.github.com"
+          git config --local user.name "github actions bot"
+          git add README.md
+          git commit -s -m "algo commit autocheck"
+          git push
