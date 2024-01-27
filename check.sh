@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/bash
+
+cat $0
 
 count=$(cat users.json | jq '. | length')
 
