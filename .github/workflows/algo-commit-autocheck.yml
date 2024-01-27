@@ -2,7 +2,7 @@ name: algo commit autocheck
 
 on:
   schedule:
-    - cron: '0 0 * * 2-6'
+    - cron: '0 15 * * 1-5'
 
   workflow_dispatch:
 
@@ -15,14 +15,26 @@ jobs:
 
       - name: check commit 
         run: |
-          ls -al
           count=$(cat users.json | jq '. | length')
           for ((i = 0; i < count; i++)); do
+            cat users.json | jq -r ".[0].name" >> README.md
             repo=$(cat users.json | jq -r ".[$i].repo")
-            echo $repo
-            curl -L \
+
+            latest_date=$(curl -L \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.TOKEN_GITHUB }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
-            https://api.github.com/repos/$repo/commits
+            https://api.github.com/repos/$repo/commits | jq -r ".[0].commit.committer.date")
+            
+            latest_date_epoch=$(date -d "$latest_date" +%s)
+            start_date_epoch=$(date -d "yesterday 15:00" +%s)
+            end_date_epoch=$(date -d "today 15:00" +%s)
+
+            if [[ $latest_date_epoch -ge $start_date_epoch && $latest_date_epoch -le $end_date_epoch ]]; then
+              echo "Y" >> README.md
+            else
+              echo "N" >> README.md
+            fi
           done
+
+          cat README.md
