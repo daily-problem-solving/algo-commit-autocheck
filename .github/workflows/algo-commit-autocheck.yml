@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: check commit 
         run: |
-          count=${cat users.json | jq '. | length'}
+          count=$(cat users.json | jq '. | length')
           for ((i = 0; i < count; i++)); do
             repo=$(cat users.json | jq -r ".[$i].repo")
             echo $repo
