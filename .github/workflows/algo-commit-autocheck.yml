@@ -14,4 +14,4 @@ jobs:
         run: |
           ls -al
           sudo chmod +x scripts/check.sh
-          scripts/check.sh
+          ./scripts/check.sh
