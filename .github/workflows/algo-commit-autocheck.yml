@@ -12,5 +12,6 @@ jobs:
     steps:
       - name: Check commit
         run: |
-          sudo chmod +x ./scripts/check.sh
-          ./scripts/check.sh
+          ls -al
+          sudo chmod +x scripts/check.sh
+          scripts/check.sh
