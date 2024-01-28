@@ -10,6 +10,7 @@ permissions: write-all
 
 jobs:
   check-commit:
+    if: github.repository == 'daily-problem-solving/algo-commit-autocheck'
     runs-on: ubuntu-latest
     steps:
       - name: checkout
