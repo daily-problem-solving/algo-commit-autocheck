@@ -11,18 +11,5 @@
 <a href="https://velog.io/@dev-yuniljun/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%A0%88%ED%8F%AC-%EC%BB%A4%EB%B0%8B-%EC%9E%90%EB%8F%99-%ED%99%95%EC%9D%B8-od9b4yxc" target="_blank">구현 과정 보러 가기 (click)</a>
 
 **커밋 확인 로그**  
-2024-01-28
-smilejune
-N
- / 
-2522001
-N
- / 
-harin1212
-N
- / 
-<br>
-
-| date | smilejnue | 2522001 | harin1212 |
+| date | <a href="https://github.com/smilejune">smilejune</a> | <a href="https://github.com/2522001">2522001</a> | <a href="https://github.com/harin1212">harin1212</a> |
 | --- | --- | --- | --- |
-| `2024-01-28` | N | N | N |
