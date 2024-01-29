@@ -19,9 +19,12 @@ jobs:
       - name: check commit 
         run: |
           count=$(cat users.json | jq '. | length')
-          date -u -I >> temp.txt
+
+          echo -n "|`" >> temp.txt
+          echo -n $(date -u -I) >> temp.txt
+          echo -n "`" >> temp.txt
+
           for ((i = 0; i < count; i++)); do
-            cat users.json | jq -r ".[$i].name" >> temp.txt
             repo=$(cat users.json | jq -r ".[$i].repo")
 
             latest_date=$(curl -L \
@@ -35,16 +38,16 @@ jobs:
             end_date_epoch=$(date -d "today 15:00" +%s)
 
             if [[ $latest_date_epoch -ge $start_date_epoch && $latest_date_epoch -le $end_date_epoch ]]; then
-              echo "Y" >> temp.txt
+              echo -n "| Y" >> temp.txt
             else
-              echo "N" >> temp.txt
+              echo -n "| N" >> temp.txt
             fi
-            echo " / " >> temp.txt
+            echo "|" >> temp.txt
           done
 
           cat temp.txt >> README.md
           rm -rf temp.txt
-          echo "<br>" >> README.md
+
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
