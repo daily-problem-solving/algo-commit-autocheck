@@ -43,7 +43,7 @@ jobs:
             fi
           done
 
-          printf "|%s|%s|%s|%s|\n" "`echo "$date_value"`" "${check_list[0]}" "${check_list[1]}" "${check_list[2]}" >> README.md
+          printf "|%s|%s|%s|%s|%s|\n" "`echo "$date_value"`" "${check_list[0]}" "${check_list[1]}" "${check_list[2]}" "${check_list[3]}" >> README.md
 
       - name: Commit & Push changes
         uses: actions-js/push@master
